@@ -10,3 +10,11 @@ jobs:
     steps:
     - name: checkout
       uses: actions/checkout@v2
+    - name: add_generated
+      run: |
+        echo "date" >> generated.txt
+        git config user.name github-actions
+        git config user.email josemiguelmelo94@gmail.com
+        git add .
+        git commit -m "generated"
+        git push
